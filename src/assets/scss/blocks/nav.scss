@@ -3,6 +3,19 @@
     display: flex;
   }
 
+  &__item {
+    position: relative;
+
+    &:hover {
+      .nav__link {
+        background-color: $blue;
+      }
+      > .subnav {
+        display: block;
+      }
+    }
+  }
+
   &__link {
     display: block;
     padding: 1.35rem 1.5rem;
@@ -15,8 +28,25 @@
 
     transition: background-color 0.3s ease;
 
-    &:hover {
-      background-color: $blue;
+    &.has-subnav {
+      position: relative;
+      padding-right: 3.5rem;
+
+      &:after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        right: 1.35rem;
+        transform: translateY(-50%);
+
+        display: block;
+        margin-top: 1px;
+
+        border-style: solid;
+        border-width: 6px 5px 0 5px;
+        border-color: $white transparent transparent transparent;
+      }
     }
   }
 }
